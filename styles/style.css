@@ -16,14 +16,14 @@ body {
     color: #000;
     font-weight: 400;
     font-family: Raleway, Arial, sans-serif;
-    overflow-x: hidden;
+
 }
 
 
 .container {
     max-width: 1100px;
     width: 100%;
-    height: 293px;
+    min-height: 293px;
     margin: 0 auto;
     padding: 0 50px;
 }
@@ -31,7 +31,7 @@ body {
 
 .header .container {
     display: grid;
-    grid-template-columns: 1fr min-content 1fr;
+    grid-template-columns: 1.2fr min-content 1fr;
     align-items: center;
     gap: 20px;
     width: 100%;
@@ -51,7 +51,9 @@ body {
     display: flex;
     gap: 32px;
     align-items: center;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-size: 18px;
+
+
 }
 
 .header__menu-link {
@@ -59,7 +61,7 @@ body {
     color: #000;
 }
 
-.header__menu-item:first-child .header__menu-link {
+.header__menu-link_active {
     text-decoration: none;
 }
 
@@ -80,7 +82,6 @@ body {
 .header__contacts {
     display: flex;
     width: 240px;
-    height: 98px;
     grid-column: 3;
     justify-self: end;
     flex-direction: column;
@@ -89,16 +90,22 @@ body {
     font-size: 18px;
     color: #000;
     text-align: left;
+
 }
 
 .header__contacts-links {
     color: #000;
     text-decoration: underline;
+    text-underline-offset: 4px;
+
+}
+
+.header__contacts address {
+    font-style: normal;
 }
 
 .content {
     width: 100%;
-    min-height: 400px;
     position: relative;
     background: none;
     display: flex;
@@ -109,10 +116,14 @@ body {
 
 .cover.content-section {
     width: 1100px;
-    height: 757px;
+    min-height: 757px;
     position: relative;
     background: url("../images/lotus-flower.svg") no-repeat center center;
     background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 50px 50px;
 }
 
 .cover.content-section::before {
@@ -122,8 +133,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("../images/Overlay.svg") no-repeat center center;
-    background-size: cover;
+    background-color: #000;
     opacity: 0.6;
     z-index: 0;
     pointer-events: none;
@@ -142,7 +152,7 @@ body {
     font-size: 100px;
     line-height: 115%;
     letter-spacing: 30px;
-    padding: 165px 50px 135px 50px;
+    padding: 165px 0 0;
 }
 
 .accent-span {
@@ -159,9 +169,7 @@ body {
 
 
 .description {
-    position: absolute;
-    bottom: 50px;
-    right: 50px;
+    position: relative;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -182,7 +190,7 @@ body {
 
 .description__btn {
     width: 257px;
-    height: 52px;
+    min-height: 52px;
     padding: 12px 32px;
     background-color: transparent;
     border: 1px solid #fff;
@@ -235,34 +243,33 @@ body {
 
 .card-list__item {
     width: 334px;
-    height: 596px;
+    min-height: 596px;
     flex: 0 0 auto;
 }
 
 .card-link {
     display: block;
-    height: 100%;
     text-decoration: none;
     color: inherit;
 }
 
 .card {
     position: relative;
-    height: 100%;
+    min-height: 596px;
     background-size: cover;
     background-position: center;
     overflow: hidden;
 }
 
-.card-list__item:nth-child(1) .card {
+.card-list__item_type_film .card {
     background-image: url("../images/photo_film.svg");
 }
 
-.card-list__item:nth-child(2) .card {
+.card-list__item_type_book .card {
     background-image: url("../images/photo_book.svg");
 }
 
-.card-list__item:nth-child(3) .card {
+.card-list__item_type_picture .card {
     background-image: url("../images/photo_picture.svg");
 }
 
@@ -285,13 +292,13 @@ body {
 }
 
 .card__content {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    height: 100%;
     padding: 50px;
     color: #fff;
     text-align: left;
@@ -344,32 +351,27 @@ body {
 .about-section {
     padding: 0;
     width: 1052px;
-    height: 595px;
     margin: 0 auto;
-    background:
-            linear-gradient(90deg, rgba(255, 0, 0, 0.15) 1px, transparent 1px),
-            linear-gradient(0deg, rgba(255, 0, 0, 0.15) 1px, transparent 1px);
+    /* Странно, в моём макете здесь указан клетчатый фон :( */
     background-size: 10px 10px;
     background-color: #fff;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
 }
 
 
 .about-section__inner {
-    position: relative;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 100px 50px;
-    height: 100%;
+    padding: 180px 50px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 25px;
+    align-items: start;
 }
 
 
 .about-section__logo {
-    position: absolute;
-    top: 50px;
-    left: 50px;
     width: 240px;
     height: 240px;
     display: flex;
@@ -389,19 +391,17 @@ body {
 
 .about-section__header {
     margin-bottom: 100px;
-    display: flex;
-    align-items: center;
 }
 
 .about-section__content {
-    margin-left: 300px;
-    width: 100%;
+    padding-left: 72px;
     max-width: 693px;
     box-sizing: border-box;
 }
 
 .about-section__title {
-    margin: 0;
+    margin: 0 0 0 0;
+    padding-top: 100px;
     font-size: 40px;
     font-weight: 700;
     text-transform: uppercase;
@@ -438,7 +438,6 @@ body {
 
 .footer {
     width: 1100px;
-    height: 180px;
     margin: 180px auto 0;
     font-size: 18px;
 
@@ -471,6 +470,7 @@ body {
 .footer__left-links {
     text-decoration: underline;
     color: #000;
+    text-underline-offset: 4px;
 }
 
 .footer_center {
@@ -505,4 +505,3 @@ body {
     gap: 48px;
 
 }
-
