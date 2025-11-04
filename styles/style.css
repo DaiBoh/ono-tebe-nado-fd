@@ -144,7 +144,7 @@ body {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 100px;
-    line-height: 100%;
+    line-height: 115%;
     letter-spacing: 30px;
     padding: 165px 0 0;
 }
@@ -154,7 +154,7 @@ body {
 }
 
 .accent-span:not(:first-child) {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 .text-center {
@@ -275,11 +275,6 @@ body {
     background-image: url("../images/photo_picture.svg");
 }
 
-.card .overlay {
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
 .card__title {
     font-size: 22px;
     font-weight: 700;
@@ -385,7 +380,6 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     text-align: left;
-    letter-spacing: 1px;
 }
 
 .about-section__text {
@@ -407,16 +401,15 @@ body {
 }
 
 .about-section__paragraph {
-    margin-bottom: 0;
+    margin-bottom: 24px;
     font-size: 20px;
     line-height: 1.2;
 
 
 }
 
-.about-section__paragraph:first-child {
-    margin-bottom: 24px;
-    margin-right: 5px;
+.about-section__paragraph:last-child {
+    margin-bottom: 0;
 }
 
 
